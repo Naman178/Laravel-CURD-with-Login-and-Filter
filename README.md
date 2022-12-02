@@ -20,6 +20,15 @@ This is simple laravel project with curd operation, login and filter functionali
 
     I have declared all Database related models in App\Repository\Models\
 
+## Database Configuration
+
+    Create the database named "laraveltest"
+
+    and then run the migration command to add the tables in the database 
+
+    and then run the seeds command to add the data into the database.
+
+
 ## useful commands
 
     1. php artisan serve
@@ -45,3 +54,9 @@ This is simple laravel project with curd operation, login and filter functionali
     4.php artisan config:cache
     5.php artisan optimize
     6.php artisan serve
+
+## Login Credentials 
+
+  For the login the the admin use the below mention crential
+  Email: admin@gmail.com
+  Password: password
