@@ -1,6 +1,6 @@
 ## Author
 
--   [Naman Makwana]
+-   [Naman Makwana](https://github.com/Naman178/)
 
 ## About
 
@@ -58,5 +58,7 @@ This is simple laravel project with curd operation, login and filter functionali
 ## Login Credentials 
 
   For the login the the admin use the below mention crential
+
   Email: admin@gmail.com
+
   Password: password
