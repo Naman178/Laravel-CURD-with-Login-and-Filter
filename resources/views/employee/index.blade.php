@@ -35,9 +35,13 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $i = 0
+                @endphp
                 @foreach ($employee as $row)
+                    @php $i++ @endphp
                     <tr>
-                        <td>{{ $row->id }}</td>
+                        <td>{{ $i }}</td>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->email }}</td>
                         <td>{{ $row->contactno }}</td>
