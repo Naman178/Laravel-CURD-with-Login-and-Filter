@@ -49,6 +49,16 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Employee Profile Pic:</strong>
+                        <img src="{{ URL::to('/') }}/Employee_Profile_Pic/{{ $employee->profile_pic }}" alt="employee profile pic" style="width:150px; height:150px;">
+                        <input type="file"  name="profile_pic" class="form-control" placeholder="Employee profile pic">
+                        @error('profile_pic')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
                 <?php $allContact = explode(',',$employee->contactno); ?>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group" id="multipleRow">

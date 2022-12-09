@@ -30,6 +30,7 @@
                     <th>S.No</th>
                     <th>Employee Name</th>
                     <th>Employee Email</th>
+                    <th>Employee Profile Pic</th>
                     <th>Employee Contact No</th>
                     <th width="280px">Action</th>
                 </tr>
@@ -44,6 +45,7 @@
                         <td>{{ $i }}</td>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->email }}</td>
+                        <td><img src="{{ URL::to('/') }}/Employee_Profile_Pic/{{ $row->profile_pic }}" alt="employee profile pic" style="width:150px; height:150px;"></td>
                         <td>{{ $row->contactno }}</td>
                         <td>
                             <form action="{{ route('employee.destroy',$row->id) }}" method="Post">

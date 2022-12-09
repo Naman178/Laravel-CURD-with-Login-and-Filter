@@ -40,14 +40,19 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'profile_pic' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'contactno' => 'required',
         ]);
 
         $name = $request->post('name');
         $email = $request->post('email');
+
+        $imageName = time().'.'.$request->profile_pic->extension();  
+        $request->profile_pic->move(public_path('Employee_Profile_Pic'), $imageName);
+
         $contactno = implode(',', $request->post('contactno'));
 
-        Employee::create(['name'=>$name , 'email'=>$email , 'contactno'=>$contactno]);
+        Employee::create(['name'=>$name , 'email'=>$email , 'profile_pic'=> $imageName,'contactno'=>$contactno]);
 
         return redirect()->route('employee.index')->with('success','Employee has been added successfully.');
     }
@@ -86,14 +91,21 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
+            'profile_pic' => 'image|mimes:jpeg,png,jpg|max:2048',
             'contactno' => 'required',
         ]);
         
         $name = $request->post('name');
         $email = $request->post('email');
         $contactno = implode(',', $request->post('contactno'));
-
-        $employee->fill(['name'=>$name , 'email'=>$email , 'contactno'=>$contactno])->save();
+        if($request->profile_pic){
+            $imageName = time().'.'.$request->profile_pic->extension();  
+            $request->profile_pic->move(public_path('Employee_Profile_Pic'), $imageName);
+            $employee->fill(['name'=>$name , 'email'=>$email , 'profile_pic'=> $imageName,'contactno'=>$contactno])->save();
+        }
+        else{
+            $employee->fill(['name'=>$name , 'email'=>$email ,'contactno'=>$contactno])->save();
+        }
 
         return redirect()->route('employee.index')->with('success','Employee Has Been updated successfully');
     }

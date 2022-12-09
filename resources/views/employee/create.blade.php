@@ -46,6 +46,15 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Employee Profile Pic:</strong>
+                        <input type="file"  name="profile_pic" class="form-control" placeholder="Employee profile pic">
+                        @error('profile_pic')
+                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group" id="multipleRow">
                         <strong>Employee Contact No:</strong>
                         <div class="row mb-2">
@@ -54,7 +63,6 @@
                             </div>
                             <div class="col-xs-1 col-sm-1 col-md-1">
                                 <button class="btn btn-success add" type="button">Add</button>
-                                <!-- <button class="btn btn-danger remove" type="button">Remove</button> -->
                             </div>
                         </div>
                         @error('contactno')
